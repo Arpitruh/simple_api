@@ -1,4 +1,4 @@
-const { signup: signupService, login: loginService } = require('../services/authService');
+const { signupService, loginService } = require('../services/authService');
 
 
 

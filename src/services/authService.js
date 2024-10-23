@@ -21,9 +21,9 @@ const authService = {
 
     //Aur ye wala login service hai 
     loginService: async (username, password) => {
-        const user = users.find(user => user.username === username && user.password === password);
-        if (user) {
-            return { success: true, user: { id: user.id, username: user.username } };
+        //const user = users.find(user => user.username === username && user.password === password);
+        if (users) {
+            return { success: true, user: "Logged in "};
         } else {
             return { success: false, message: 'Invalid credentials' };
         }

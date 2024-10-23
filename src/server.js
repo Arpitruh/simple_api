@@ -13,7 +13,7 @@
  *  |                    API FLOW                        |
  *  +----------------------------------------------------+
  *  |                                                    |
- *  |     ROUTES   ---->   CONTROLLER   ---->  SERVICES  |
+ *  |   ROUTES   ---->   CONTROLLER   ---->  SERVICES    |
  *  |                                                    |
  *  |                                                    |
  *  |  ROUTES: Define the API endpoints and handle       |
