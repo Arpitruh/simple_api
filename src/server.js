@@ -50,6 +50,12 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 
 // Set up a new GET route directly in server.js
+
+//TODO : Convert this controller in 3 diffrent part 
+// 1. routes 
+// 2. controller
+// 3. service
+// Define a GET route for fetching user data
 app.get('/users', (req, res) => {
     const jsonFilePath = path.join(__dirname, '../Data/data.json');
 
