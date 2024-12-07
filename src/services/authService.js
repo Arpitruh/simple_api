@@ -1,9 +1,11 @@
+const fs = require('fs'); // Afor file system operations
+const path = require('path'); //for file path operations
 const users = [];
 
-//NOTE: THIS IS SIDDHARTH WRITING CMNTS 
-//code ka structure padh lo achee se 
-//yhai standers structure hota hai functional approch me likne k liye js 
-//code ka struture khrab hua to gand fad denge tumhri 
+//NOTE: THIS IS SIDDHARTH  AND ARPIT WRITING CMNTS 
+
+//yhi standers structure hota hai functional approch me likhne k liye js 
+
 
 const authService = {
 
@@ -21,13 +23,35 @@ const authService = {
 
     //Aur ye wala login service hai 
     loginService: async (username, password) => {
-        //const user = users.find(user => user.username === username && user.password === password);
+        const user = users.find(user => user.username === username && user.password === password);
         if (users) {
-            return { success: true, user: "Logged in "};
+            return { success: true, user: "Logged in " };
         } else {
             return { success: false, message: 'Invalid credentials' };
         }
     },
+
+
+    //This a funtion to fetch and parse user data from the JSON file
+    getUsers: () => {
+        return new Promise((resolve, reject) => {
+            const jsonFilePath = path.join(__dirname, '../Data/data.json');
+
+            fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+                if (err) {
+                    return reject(new Error('Error reading JSON file: ' + err.message));
+                }
+
+                try {
+                    const jsonData = JSON.parse(data);
+                    resolve(jsonData); // Return the parsed data
+                } catch (parseErr) {
+                    reject(new Error('Error parsing JSON data: ' + parseErr.message));
+                }
+            });
+        });
+    }
+
 };
 
 module.exports = authService;
